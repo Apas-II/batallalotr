@@ -6,19 +6,15 @@ body {
 
 
 .main {
-    
     padding: 10px;
     height: 2000px;
     margin-top: 120px;
     display: flex;
     flex-direction: column;
   }
-
-
   .row1{
     display: flex;
     flex-direction: row;
-  
     padding: 5px;
     position: relative;
   }
@@ -28,18 +24,20 @@ input {
   padding: 0;
   text-align: center;
 }
+
 ::-webkit-input-placeholder {
   text-align: center;
 }
 
-
 .mainizquierda{
   width: 33%;}
 
-.tablacaracteristicas{
+.tablacaracteristicas{  
   border-collapse: separate;
   border-spacing: 10px;
   margin: 0;
+  align-items: center;
+  vertical-align: middle;
 }
 
 td{
@@ -75,4 +73,8 @@ width: 34%;
   width: 65%;
   z-index: 4;
   margin-bottom: 10px;
+}
+
+.checkbox{
+  width:20px;
 }

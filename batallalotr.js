@@ -152,7 +152,112 @@ function updateModifiersapa()
 }
 
 
-totalfuer = document.getElementById("totalfuer").value
-totalfuer = valorfuer.value
+
+
+
+ const razas = 
+ [ 
+   {raza:"Hombre", fuerza: 10, agilidad: 0, constitucion: 10, inteligencia: 0, intuicion: 0, presencia: 5 }, 
+   {raza:"Elfo", fuerza: 0, agilidad: 10, constitucion: 0, inteligencia: 10, intuicion: 5, presencia: 5}, 
+   {raza:"Enano", fuerza: 10, agilidad: -5, constitucion: 15, inteligencia: 0, intuicion: -5, presencia: -5}, 
+   {raza:"Hobbit", fuerza: -20, agilidad: 15, constitucion: 15, inteligencia: 0, intuicion: -5, presencia: -5}
+  ]
+ 
+  razas.forEach((item ) => {
+    let listaderazas = document.getElementById("listaderazas")
+    let o = document.createElement("option")
+    o.text = item.raza;
+    o.value = item.raza;
+    listaderazas.appendChild(o)
+  })
+  
+document.getElementById("listaderazas").addEventListener('change', function()  //agarro listaderazas. le asigno un listern en ccambio y le tiro la funcion de abajo
+{
+ let found =razas.find( element=> element.raza == listaderazas.value)
+document.getElementById("razafuer").value = found.fuerza
+document.getElementById("razaagi").value = found.agilidad
+document.getElementById("razaconst").value = found.constitucion
+document.getElementById("razaint").value = found.inteligencia
+document.getElementById("razaintu").value = found.intuicion
+document.getElementById("razapres").value = found.presencia
+})
+
+  
+
+
+
+
+
+
+
+const profesiones = 
+[
+{profesion: "Guerrero", mym: 1, armas: 3, general: 1 , subter: 0 , magia: 0,per: 0, df: 2,}, 
+{profesion: "Montaraz", mym: 2, armas: 2, general: 3 , subter: 2 , magia: 0,per:2,df: 2 }, 
+{profesion: "Explorador", mym: 2, armas: 1,general: 1 , subter: 2 , magia: 0,per:3, df:0 },
+{profesion: "Bardo",mym: 2, armas: 1, general: 1 , subter: 1, magia: 1,per:1,df:0 },
+{profesion:"Mago",mym: 1, armas: 0, general: 0 , subter: 0, magia: 3, per:0, df:0 },
+{profesion: "Druida",mym: 1, armas:0, general: 1 , subter: 0, magia: 2 , per:2, df:0 }
+]
+
+
+
+profesiones.forEach((items ) => {
+  let listadeprofesiones = document.getElementById("listadeprofesiones")
+  let i = document.createElement("option")
+  i.text = items.profesion;
+  i.value = items.profesion;
+  listadeprofesiones.appendChild(i)
+})
+
+
+
+
+document.getElementById("listadeprofesiones").addEventListener('change', function() 
+{
+  let found1 =profesiones.find( element=> element.profesion == listadeprofesiones.value)
+  document.getElementById("mymprofesion1").value = found1.mym
+  document.getElementById("mymprofesion2").value = found1.mym
+  document.getElementById("mymprofesion3").value = found1.mym    // los id de los elementos son unicos. no pueden ser compartidos con otro elemento, a diferencia de las clases
+  document.getElementById("mymprofesion4").value = found1.mym
+  document.getElementById("mymprofesion5").value = found1.mym
+  
+  document.getElementById("boprofesion1").value =found1.armas
+  document.getElementById("boprofesion2").value =found1.armas
+  document.getElementById("boprofesion3").value =found1.armas
+  document.getElementById("boprofesion4").value =found1.armas
+  document.getElementById("boprofesion5").value =found1.armas
+  document.getElementById("boprofesion6").value =found1.armas
+
+  document.getElementById("hgprofesion1").value = found1.general
+  document.getElementById("hgprofesion2").value = found1.general
+  document.getElementById("hgprofesion3").value = found1.general
+  document.getElementById("hgprofesion4").value = found1.general
+
+  document.getElementById("hsprofesion1").value = found1.subter
+  document.getElementById("hsprofesion2").value = found1.subter
+  document.getElementById("hsprofesion3").value = found1.subter
+  document.getElementById("hsprofesion4").value = found1.subter
+  
+  document.getElementById("magiaprofesion1").value = found1.magia
+  document.getElementById("magiaprofesion2").value = found1.magia
+  document.getElementById("magiaprofesion3").value = found1.magia
+  document.getElementById("magiaprofesion4").value = found1.magia
+
+  document.getElementById("perprofesion").value = found1.per
+  document.getElementById("dfprofesion").value = found1.df
+})
+
+
+
+
+
+
+
+
+
+
+/* asi pude hacer que sume las strings a total pero no como numeros. tengo que ponerle un evento p*/
+document.getElementById("totalfuer").value = parseInt(razafuer.value) + parseInt(normalfuer.value)
 
 

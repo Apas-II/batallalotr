@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Batalla epica Lord of the Rings</title>
-  <script src="batallalotr.js"></script>
   <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +14,20 @@
 <body>
   <header class = "header">
 <div class = "infoHeader">
-Personaje
+<div class = "infoHeaderizquierda">
+<input type="text" name="" id="nombredelpersonaje" placeholder="Nombre del PJ" class="nombredelpersonaje">
+<select name="" id="listaderazas" class = "listaderazas" ><option value="" disabled selected hidden>Elegi Raza</option> </select>
+<select name="" id="listadeprofesiones" class = "listaderazas" ><option value="" disabled selected hidden>Elegi Profesión</option> </select>
+ <div style = "margin: 2px">
+   Nivel: <input type="number" name="" id="" style = "width: 78px;" readonly placeholder="1">
+ </div>         
+</div>
+<div class = "caracteristicasdelpj">
+ <div class = caracteristicasdelpj1> Estatura: <input type="text" name="" id="" style = "width: 90px;"  > </div>
+ <div class = caracteristicasdelpj1>Pelo: <input type="text" name="" id="" style = "width: 90px;" > </div>
+ <div class = caracteristicasdelpj1>Ojos: <input type="text" name="" id="" style = "width: 90px;" ></div>
+  <div class = caracteristicasdelpj1>Actitud: <input type="text" name="" id="" style = "width: 90px;" ></div>
+</div>
 </div>
 <div class = "infoPersonaje">
 <table>
@@ -37,7 +49,7 @@ Personaje
 <td> PV</td> 
 <td><input type="number"></td>
 </tr>
-
+<!-- poner un imput de movimiento y maniobra. son los turnos. osea en batalla, quien pega primero -->
 </table>
 </div>
 
@@ -50,7 +62,7 @@ Personaje
 <div class = "row1">
   <div class="mainizquierda">
       
-    <table class = "tablacaracteristicas">
+    <table class = "tablamovimientoymaniobra">
       <th colspan ="5">Bonificaciones</th>
       <tr>
         <th>Caracteristicas</th>
@@ -63,50 +75,50 @@ Personaje
         <td>Fuerza</td>
         <td><input type="number"  id="valorfuer" min  ="0" max  = "102" onchange="updateModifiersfuer()"></td>
         <td><input type="number"  id="normalfuer"readonly></td>
-        <td><input type="number" id="strMod"readonly></td>
-        <td><input type="number"  id="totalfuer"readonly></td>
+        <td><input type="number" id="razafuer"readonly></td>
+        <td><input type="number"  id="totalfuer"readonly ></td>
       </tr>
       <tr>
         <td>Agilidad</td>
         <td><input type="number"  id="valoragi" min  ="0" max  = "102" onchange="updateModifiersagi()"></td>
         <td><input type="number" id="normalagi"readonly></td>
-        <td><input type="number"  id=""readonly></td>
-        <td><input type="number"  id="totalfuer"readonly></td>
+        <td><input type="number"  id="razaagi"readonly></td>
+        <td><input type="number"  id="totalagi"readonly></td>
       </tr>
       <tr>
         <td>Constitutión</td>
         <td><input type="number"  id="valorconst"min  ="0" max  = "102" onchange="updateModifiersconst()"></td>
         <td><input type="number"  id="normalconst"readonly></td>
-        <td><input type="number"  id=""readonly></td>
-        <td><input type="number"  id="totalfuer"readonly></td>
+        <td><input type="number"  id="razaconst"readonly></td>
+        <td><input type="number"  id="totalconst"readonly></td>
       </tr>
       <tr>
         <td>Inteligencia</td>
         <td><input type="number"  id="valorint"min  ="0" max  = "102" onchange="updateModifiersint()"></td>
         <td><input type="number"  id="normalint"readonly></td>
-        <td><input type="number"  id=""readonly></td>
-        <td><input type="number"  id="totalfuer"readonly></td>
+        <td><input type="number"  id="razaint"readonly></td>
+        <td><input type="number"  id="totalint"readonly></td>
       </tr>
       <tr>
         <td>Intuición</td>
         <td><input type="number"  id="valorintu"min  ="0" max  = "102" onchange="updateModifiersintu()"></td>
         <td><input type="number"  id="normalintu"readonly></td>
-        <td><input type="number" id=""readonly></td>
-        <td><input type="number" id="totalfuer"readonly></td>
+        <td><input type="number" id="razaintu"readonly></td>
+        <td><input type="number" id="totalintu"readonly></td>
       </tr>
       <tr>
         <td>Presencia</td>
         <td><input type="number"  id="valorpres"min  ="0" max  = "102" onchange="updateModifierspres()"></td>
         <td><input type="number"  id="normalpres"readonly></td>
-        <td><input type="number"  id=""readonly></td>
-        <td><input type="number"  id="totalfuer"readonly></td>
+        <td><input type="number"  id="razapres"readonly></td>
+        <td><input type="number"  id="totalpres"readonly></td>
       </tr>
       <tr>
         <td>Aparicencia</td>
         <td><input type="number"  id="valorapa"min ="1" max = "100" onchange="updateModifiersapa()"></td>
         <td><input type="number" placeholder="-"  readonly ></td>
         <td><input type="number" placeholder="-" readonly></td>
-        <td><input type="number"placeholder="" id="normalapa"readonly min ="1" max = 100"></td>
+        <td><input type="number"placeholder="" id="normalapa"readonly min ="1" max = "100"></td>
       </tr>
     </table>
 
@@ -115,7 +127,7 @@ Personaje
   <div class = "maincentro">
     <table class ="tablamovimientoymaniobra">
       <tr>
-      <th colspan ="7">Movimiento y Maniobra</th>
+      <th colspan ="7">Movimiento y Maniobra (turnos)</th>
     </tr>
     <tr>
       <th>Habilidades</th>
@@ -123,8 +135,8 @@ Personaje
       <th>Caract.</th>
       <th>Objeto</th>
       <th>Especial</th>
-      <th>Esp</th>
-      <th>Total</th>
+      <th>Raza (+lvl)</th>
+      <th>MyM (turnos)</th>
     </tr>
     <tr>
     <td>Sin armadura</td>
@@ -132,44 +144,49 @@ Personaje
     <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="mymprofesion1"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>  
+  </tr>
     <tr>
     <td>Cuero</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="mymprofesion2"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr> 
+    <td class = "checkbox"><input type="checkbox" name="" id=""></td>  
+  </tr> 
     <tr>
     <td>Cuerdo Endurecido</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="mymprofesion3"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>  
+  </tr>
     <tr>
     <td>Cota de Malla</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="mymprofesion4"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td> 
+  </tr>
     <tr>
     <td>Coraza</td>
     <td><input type="number"  id="strMod"></td>
     <td><input type="number" placeholder="Fue" id="strMod" readonly></td>
     <td><input type="number"  id="strMod" readonly></td>
     <td><input type="number"  id="chaMod" readonly></td>
+    <td><input type="number"  id="mymprofesion5"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
+    <td class = "checkbox"><input type="checkbox" name="" id=""></td>
     </tr>
     </table>
   </div>
@@ -185,8 +202,8 @@ Personaje
     <th>Caract.</th>
     <th>Objeto</th>
     <th>Especial</th>
-    <th>Esp</th>
-    <th>Total</th>
+    <th>Raza (+lvl)</th>
+    <th>Total (BO)</th>
     </tr>
     <tr>
     <td>De filo</td>
@@ -194,72 +211,80 @@ Personaje
     <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="boprofesion1"readonly></td>
     <td><input type="number"  id="strMod"readonly> </td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>  
+  </tr>
     <tr>
     <td>Contundentes</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="boprofesion2"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr> 
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>  
+  </tr> 
     <tr>
     <td>A 2 manos</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="boprofesion3"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr> 
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>
+  </tr> 
     <tr>
     <td>Arrojadizas</td>
     <td><input type="number"  id="chaMod"></td>
     <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
     <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="boprofesion4"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr> 
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>
+  </tr> 
     <tr>
     <td>Proyectiles</td>
     <td><input type="number"  id="strMod"></td>
     <td><input type="number" placeholder="Agi" id="strMod" readonly></td>
     <td><input type="number"  id="strMod" readonly></td>
     <td><input type="number"  id="chaMod" readonly></td>
+    <td><input type="number"  id="boprofesion5"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id="" ></td>
+  </tr>
     <tr>
     <td>Armas de asta</td>
     <td><input type="number"  id="strMod"></td>
     <td><input type="number" placeholder="Fue" id="strMod" readonly></td>
     <td><input type="number"  id="strMod" readonly></td>
     <td><input type="number"  id="chaMod" readonly></td>
+    <td><input type="number"  id="boprofesion6"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id=""></td>
+  </tr>
     <tr>
     <td>Sortilegios de escencia</td>
     <td><input type="number"  id="strMod"></td>
     <td><input type="number" placeholder="Int" id="strMod" readonly></td>
     <td><input type="number"  id="strMod" readonly></td>
     <td><input type="number"  id="chaMod" readonly></td>
+    <td><input type="number"  id="magiaprofesion1"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id=""></td>
+  </tr>
     <tr>
     <td>Sortilegios de canalización</td>
     <td><input type="number"  id="strMod"></td>
     <td><input type="number" placeholder="Int" id="strMod" readonly></td>
     <td><input type="number"  id="strMod" readonly></td>
     <td><input type="number"  id="chaMod" readonly></td>
+    <td><input type="number"  id="magiaprofesion2"readonly></td>
     <td><input type="number"  id="strMod"readonly></td>
-    <td><input type="number"  id="strMod"readonly></td>
-    </tr>
+    <td class = "checkbox"><input type="checkbox" name="" id=""></td>
+  </tr>
   </table>
   </div>
   <div class = "equipo">
@@ -269,10 +294,7 @@ Personaje
 
 
          <img src="icons/armor.png" alt="">
-        <img src="icons/helmet.png" alt="">
-      
-      
-    
+         <img src="icons/helmet.png" alt="">
      <img src="icons/gaunlets.png" alt="">
       <img src="icons/legs.png" alt="">
       <img src="icons/shield.png" alt="">
@@ -282,7 +304,191 @@ Personaje
     
   </div>
 </div>
+<div class = "row1" >
 
- </main>
+  <div class="mainizquierda"
+  >    <table class ="tablamovimientoymaniobra">
+    <tr>  
+    <th colspan ="7">Habilidades Generales</th>
+    </tr>
+    <tr>
+    <th>Habilidades</th>
+    <th>Grado</th>
+    <th>Caract.</th>
+    <th>Objeto</th>
+    <th>Especial</th>
+    <th>Raza (+lvl)</th>
+    <th>Total</th>
+    </tr>
+    <tr>
+    <td>Trepar</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hgprofesion1"readonly></td>
+    <td><input type="number"  id="strMod"readonly> </td>
+    </tr>
+    <tr>
+    <td>Montar</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hgprofesion2"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+    <tr>
+    <td>Nadar</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hgprofesion3"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+    <tr>
+    <td>Rastrear</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hgprofesion4"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+  </table>
+</div>
+  
+<div class="maincentro">   
+   <table class ="tablamovimientoymaniobra">
+    <tr>
+    <th colspan ="7">Habilidades de Subterfugio</th>
+    </tr>
+    <tr>
+    <th>Habilidades</th>
+    <th>Grado</th>
+    <th>Caract.</th>
+    <th>Objeto</th>
+    <th>Especial</th>
+    <th>Raza (+lvl)</th>
+    <th>Total</th>
+    </tr>
+    <tr>
+    <td>Emboscar</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hsprofesion1"readonly></td>
+    <td><input type="number"  id="strMod"readonly> </td>
+    </tr>
+    <tr>
+    <td>Acechar/esconderse</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hsprofesion2"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+    <tr>
+    <td>Abrir cerraduras</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hsprofesion3"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+    <tr>
+    <td>Desactivar trampas</td>
+    <td><input type="number"  id="chaMod"></td>
+    <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    <td><input type="number"  id="chaMod"readonly></td>
+    <td><input type="number"  id="hsprofesion4"readonly></td>
+    <td><input type="number"  id="strMod"readonly></td>
+    </tr> 
+  </table>
+</div>
+<div class="mainizquierda">    
+  <table class ="tablamovimientoymaniobra">
+  <tr>
+  <th colspan ="7">Habilidades Magicas</th>
+  </tr>
+  <tr>
+  <th>Habilidades</th>
+  <th>Grado</th>
+  <th>Caract.</th>
+  <th>Objeto</th>
+  <th>Especial</th>
+  <th>Raza (+lvl)</th>
+  <th>Total</th>
+  </tr>
+  <tr>
+  <td>Leer Runas</td>
+  <td><input type="number"  id="chaMod"></td>
+  <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="chaMod"readonly></td>
+  <td><input type="number"  id="magiaprofesion3"readonly></td>
+  <td><input type="number"  id="strMod"readonly> </td>
+  </tr>
+  <tr>
+  <td>Usar Objetos</td>
+  <td><input type="number"  id="chaMod"></td>
+  <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="chaMod"readonly></td>
+  <td><input type="number"  id="magiaprofesion4"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  </tr> 
+  <th colspan ="7">Otras Habilidades y Bonificaciones</th>
+  <tr>
+    <th>Habilidades</th>
+    <th>Grado</th>
+    <th>Caract.</th>
+    <th>Objeto</th>
+    <th>Especial</th>
+    <th>Raza (+lvl)</th>
+    <th>Total</th>
+    </tr>
+    <td>Percepción</td>
+  <td><input type="number"  id="chaMod"></td>
+  <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="chaMod"readonly></td>
+  <td><input type="number"  id="perprofesion"readonly></td>
+  <td><input type="number"  id="strMod"readonly> </td>
+  </tr>
+  <tr>
+  <td>Desarrollo Físico (PV)</td>
+  <td><input type="number"  id="chaMod"></td>
+  <td><input type="number" placeholder="Fue" id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="chaMod"readonly></td>
+  <td><input type="number"  id="dfprofesion"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  </tr>
+  <td>Bonificacion Defensiva (BD)</td>
+  <td><input type="number"  id="chaMod"></td>
+  <td><input type="number" placeholder="Agi" id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="chaMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  <td><input type="number"  id="strMod"readonly></td>
+  </tr>
+</table>
+</div>
+</div>
+<div class ="row1">
+<div>Idiomas</div>
+<div>Lista de sortilegios</div>
+</div>
+<div class ="row1"></div>
+Mochila <!--aca poner un cuadro con las monedas de oro. y poner un generador de items para que se agreguen en la mochila. (ver los items y las habilidades que tienen)-->
+</div> 
+</main>
+ <script src="batallalotr.js"></script>
 </body>
 </html>
