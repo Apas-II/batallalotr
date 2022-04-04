@@ -69,6 +69,7 @@
 flex: 2;
 border: solid;
   border-width: 1px;
+  cursor: pointer;
 
 }
 
